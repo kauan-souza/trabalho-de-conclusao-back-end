@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  trabalho-de-conclusao:
+    container_name: trabalho-de-conclusao
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: tcc_db
+    volumes:
+      - "${HOME}/mongo_data:/data/db"
+
+  tcc-api-service:
+    container_name: trabalhodeconclusao
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    depends_on:
+     - trabalho-de-conclusao

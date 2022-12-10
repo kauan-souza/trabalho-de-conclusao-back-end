@@ -1,0 +1,9 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /v1
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://kauan:kau231299@cluster0.7h69q0d.mongodb.net/tcc_db?retryWrites=true&w=majority
